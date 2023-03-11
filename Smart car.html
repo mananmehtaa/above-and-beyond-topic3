@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Smart Car Control Panel</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/control-panel.js"></script>
+  <link rel="stylesheet" href="css/control-panel.css">
+
+ 
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  #login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: left;
+    height: 100vh;
+    background-color: grey;
+  }
+  
+  #login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  #login-form label {
+    margin-bottom: 10px;
+  }
+  
+  #login-form input[type="text"],
+  #login-form input[type="password"],
+  #login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #login-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: #341717;
+    cursor: pointer;
+  }
+  
+  .user-container {
+    display: none;
+  }
+  
+   
+  
+  </style>
+  <script>
+    $(document).ready(function() {
+  $('#login-form').submit(function(event) {
+    event.preventDefault(); // prevent form submission
+    var username = $('#username').val();
+    var password = $('#password').val();
+    if (username === 'user1' && password === 'manan1') {
+      $('.user-container').hide(); // hide all user containers
+      $('#user1-container').show(); // show User 1 container
+    } else if (username === 'user2' && password === 'manan2') {
+      $('.user-container').hide(); // hide all user containers
+      $('#user2-container').show(); // show User 2 container
+    } else {
+      alert('Invalid username or password');
+    }
+  });
+});
+  </script>
+  
+ 
+</head>
+<body>
+  
+
+  <div id="login-container">
+    <h1>Smart Car Control Panel</h1>
+    <form id="login-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+  <div id="user1-container" class="user-container">
+    <h2>User 1 key information</h2>
+  <p>User credentials:</p>
+  <ul>
+    <li>Car name : Mercedes benz</li>
+    <li>Top speed: 318 kmph </li>
+    <li>Colour : white</li>
+    <li>Car type: Manual</li>
+    <li> Seater : 5 seater</li>
+    <!-- Add more information specific to User 1 if needed -->
+  </ul>
+
+  </div>
+  <div id="user2-container" class="user-container">
+    <h2>User 2 key information</h2>
+  <p>User credentials:</p>
+  
+  <ul>
+    
+    <li>Car name : Fortuner</li>
+    <li>Top speed: 190 kmph</li>
+    <li>Colour : Red</li>
+    <li>Car type: Automatic</li>
+    <li> Seater : 5 seater</li>
+    <!-- Add more information specific to User 2 if needed -->
+  </ul>
+  </div>
+  <!-- More user containers if needed -->
+  
+</body>
+</html>
